@@ -1,0 +1,11 @@
+{
+    "name": "Class Animation",
+    "description": "Animate individual HTML and SVG elements inside one layer's html property",
+    "author": "Radek Kysely",
+
+    "require": "{ClassAnimation, Style} = require 'ClassAnimation'",
+    "install": "ClassAnimation.coffee",
+    "example": "example.coffee",
+
+    "github": "https://github.com/kysely/Framer-ClassAnimation"
+}

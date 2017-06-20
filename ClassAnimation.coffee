@@ -1,6 +1,6 @@
-# VERSION 1.0.0
+# VERSION 1.0.1
 # HELPER METHODS AND FUNCTIONS ——————————————————————————
-String::toCamel = () -> 
+String::toCamel = () ->
 	@replace( /([-_][a-z])/g, ($1) -> return $1.toUpperCase().replace(/[-_]/,'') )
 
 String::toCss = () ->
@@ -37,13 +37,13 @@ renameKey = (obj, oldName, newName) ->
 insertVelocity = (script, webscript, name) ->
 	try
 		Utils.domLoadScriptSync(script)
-		Utils.domComplete -> 
+		Utils.domComplete ->
 			console.log "%c#{script} Successfully Included", "background: #DDFFE3; color: #007814"
 	catch e
 		console.log "%cCouldn't load '#{script}' locally. Will try downloading from web.", "background: #FFF0DB; color: #D27B00"
 		try
 			Utils.domLoadScriptSync(webscript)
-			Utils.domComplete -> 
+			Utils.domComplete ->
 				console.log "%c#{name} Successfully Included from Web", "background: #DDFFE3; color: #007814"
 		catch e
 			throw Error("ClassAnimation: Sorry, I don't know how to animate without #{name} library")
@@ -214,7 +214,7 @@ ANIMATABLES =
 	x2: [false, true]
 	y1: [false, true]
 	y2: [false, true]
-	
+
 	strokeDasharray: [false, true]
 	strokeDashoffset: [false, true]
 	strokeWidth: [false, true]
@@ -292,7 +292,7 @@ class exports.ClassAnimation
 			@endState[key] = val.checkColor() if typeof val is "string"
 			renameKey(@endState, key, key.toCamel())
 			isAnimatable(key.toCamel(), true)
-		
+
 		@initState = init || getCSS(@class, @endState)
 
 		return @
@@ -303,8 +303,8 @@ class exports.ClassAnimation
 	start: () ->
 		_this = @
 		Utils.domComplete ->
-			Velocity	_this.target, 
-						_this.endState, 
+			Velocity	_this.target,
+						_this.endState,
 							duration: _this.options.time
 							delay: _this.options.delay
 							loop: _this.options.repeat
@@ -322,8 +322,8 @@ class exports.ClassAnimation
 		return @
 
 	reset: () ->
-		Velocity	@target, 
-					@initState, 
+		Velocity	@target,
+					@initState,
 						duration: 0
 						delay: 0
 		return @
@@ -340,7 +340,7 @@ class exports.ClassAnimation
 	toggle: () ->
 		_this = @
 		if @notFirst
-			Velocity	@target, 
+			Velocity	@target,
 						"reverse",
 						begin: -> _this.onStart?()
 						complete: -> _this.onEnd?()
@@ -355,17 +355,17 @@ class exports.ClassAnimation
 
 	fadeIn: () ->
 		_this = @
-		Velocity	@target, 
+		Velocity	@target,
 					"fadeIn",
 						begin: -> _this.onStart?()
 						complete: -> _this.onEnd?()
 						progress: (elements, complete, remaining, start) ->
 							_this.onAnim?(complete, remaining)
 		return @
-	
+
 	fadeOut: () ->
 		_this = @
-		Velocity	@target, 
+		Velocity	@target,
 					"fadeOut",
 						begin: -> _this.onStart?()
 						complete: -> _this.onEnd?()
@@ -374,7 +374,7 @@ class exports.ClassAnimation
 		return @
 
 	help: () -> moduleHelp()
-	
+
 
 	# METHOD ALIASES ————————————————————————————————————
 
@@ -421,7 +421,7 @@ String::fadeOut = () -> @animate().fadeOut()
 String::css = () ->
 	Utils.insertCSS(@)
 
-addUnit = (value, key) -> 
+addUnit = (value, key) ->
 	if typeof value is 'number' && isAnimatable(key, false) && !ANIMATABLES[key][0] then "#{value}px" else value
 
 exports.Style = (cl, css) ->
