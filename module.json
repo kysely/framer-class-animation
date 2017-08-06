@@ -5,7 +5,5 @@
 
     "require": "{ClassAnimation, Style} = require 'ClassAnimation'",
     "install": "ClassAnimation.coffee",
-    "example": "example.coffee",
-
-    "github": "https://github.com/kysely/Framer-ClassAnimation"
+    "example": "example.coffee"
 }
