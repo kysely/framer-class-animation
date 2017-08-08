@@ -5,5 +5,7 @@
 
     "require": "{ClassAnimation, Style} = require 'ClassAnimation'",
     "install": "ClassAnimation.coffee",
-    "example": "example.coffee"
+    "example": "example.coffee",
+
+    "thumb": "thumb.mov"
 }
