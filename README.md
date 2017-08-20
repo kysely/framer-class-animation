@@ -8,6 +8,13 @@ layer's **html** property in addition to Framer's core per-layer Animation.
 Shout out to [Velocity.js](http://velocityjs.org) for making great animation library &hearts;
 
 ## Install
+<a href='https://open.framermodules.com/Class Animation'>
+    <img alt='Install with Framer Modules'
+    src='https://www.framermodules.com/assets/badge@2x.png' width='160' height='40' /></a>
+
+
+or
+
 1. [Download the module](ClassAnimation.coffee?raw=true)
 2. Copy the `ClassAnimation.coffee` file to your prototype's `modules` folder.
 3. Call `{ClassAnimation} = require "ClassAnimation"` in your Framer prototype.
